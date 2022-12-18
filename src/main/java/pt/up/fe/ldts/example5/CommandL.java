@@ -2,8 +2,8 @@ package pt.up.fe.ldts.example5;
 
 public class CommandL extends Command {
 
-    public CommandL(Position p) {
-        super(p);
+    public CommandL(Position position) {
+        super(position);
     }
 
     @Override
