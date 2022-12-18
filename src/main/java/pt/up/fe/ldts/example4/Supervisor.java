@@ -3,7 +3,7 @@ package pt.up.fe.ldts.example4;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Supervisor extends Worker {
+public class Supervisor extends Person {
     Set<Worker> supervisee;
     
     public Supervisor(String name, String phone, String username, String password) {
@@ -17,5 +17,21 @@ public class Supervisor extends Worker {
 
     public boolean isSupervisee(Worker worker) {
         return supervisee.contains(worker);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || !(o instanceof Worker)) return false;
+        if (!(o instanceof Supervisor)) return false;
+        Supervisor worker = (Supervisor) o;
+        return Objects.equals(getName(), worker.getName()) && Objects.equals(getPhone(), worker.getPhone()) &&
+                Objects.equals(getUsername(), worker.getUsername()) && Objects.equals(getPassword(), worker.getPassword());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getName(), getPhone(), getUsername(), getPassword());
     }
 }
